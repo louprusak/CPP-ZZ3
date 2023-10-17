@@ -4,31 +4,38 @@
 #include "point.hpp"
 #include "cartesien.hpp"
 
+template<typename T>
 class Nuage{
 
     private:
-        std::vector<Point*> points;
+        std::vector<T> points;
     public:
-        typedef typename std::vector<Point*>::const_iterator const_iterator;
-        void ajouter(Point& p);
+        typedef typename std::vector<T>::const_iterator const_iterator;
+        void ajouter(const T& p);
         unsigned int size();
-        std::vector<Point*> getPoints() const;
-        std::vector<Point*>::const_iterator begin();
-        std::vector<Point*>::const_iterator end();
+        std::vector<T> getPoints() const;
+        typename std::vector<T>::const_iterator begin();
+        typename std::vector<T>::const_iterator end();
 
 };
 
-Cartesien barycentre(const Nuage &n);
 
-class BarycentreCartesien{
-    public:
-        Cartesien operator()(const Nuage &n) const;
-};
 
-class BarycentrePolaire{
-    public:
-        Polaire operator()(const Nuage &n) const;
-};
+template<typename T>
+T barycentre_v1(const Nuage<T> &n);
 
+// template<typename T>
+// class BarycentreCartesien{
+//     public:
+//         Cartesien operator()(const Nuage<T> &n) const;
+// };
+
+// template<typename T>
+// class BarycentrePolaire{
+//     public:
+//         Polaire operator()(const Nuage<T> &n) const;
+// };
+
+#include "nuage.impl.hpp"
 
 #endif

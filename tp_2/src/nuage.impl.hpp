@@ -50,6 +50,30 @@ T barycentre_v1(const Nuage<T> & n){
     return T(Cartesien(valX/points.size(), valY/points.size())); 
 }
 
+
+Polaire barycentre_v1(const Nuage<Polaire> & n){
+    const std::vector<Polaire> &points = n.getPoints();
+
+    if(points.empty()){
+        return Polaire(0.0, 0.0);
+    }
+
+    double valAngle = 0.0;
+    double valDistance = 0.0;
+
+    for (const Polaire p : points)
+    {
+        // Polaire c;
+
+        // p.convertir(c);
+
+        valAngle += p.getAngle();
+        valDistance += p.getDistance();
+    }
+
+    return Polaire(valAngle/points.size(), valDistance/points.size()); 
+}
+
 // Cartesien BarycentreCartesien::operator()(const Nuage &n) const {
 //     return barycentre(n);
 // }

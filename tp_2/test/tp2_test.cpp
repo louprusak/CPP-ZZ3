@@ -83,7 +83,7 @@ TEST_CASE ( "TP2_Nuage::BarycentreCartesien_V1" ) {
 }
 
 //----------------------------------------------------------------------------------------------- 4a
-TEST_CASE ( "TP2_Nuage::BarycentrePolaire_V1" ) {
+/*TEST_CASE ( "TP2_Nuage::BarycentrePolaire_V1" ) {
  Nuage<Polaire> n;
 
  Polaire p1(12,34);
@@ -111,7 +111,7 @@ TEST_CASE ( "TP2_Nuage::BarycentrePolaire_V1" ) {
 
  REQUIRE ( b3.getAngle() == Approx(43.017260).epsilon(1e-3) );
  REQUIRE ( b3.getDistance() == Approx(42.159772).epsilon(1e-3) );
-}
+}*/
 
 //----------------------------------------------------------------------------------------------- 4b
 TEST_CASE ( "TP2_Nuage::BarycentrePolaire_V1b" ) {

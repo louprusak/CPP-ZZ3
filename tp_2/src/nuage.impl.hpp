@@ -74,6 +74,19 @@ Polaire barycentre_v1(const Nuage<Polaire> & n){
     return Polaire(valAngle/points.size(), valDistance/points.size()); 
 }
 
+// template<typename T>
+// T barycentre_v2(const Nuage<T> & n){
+
+//     Nuage<T>::const_iterator
+//     const std::vector<T> &points = n.getPoints();
+
+//     if(points.empty()){
+//         return T(0.0, 0.0);
+//     }
+
+
+// }
+
 // Cartesien BarycentreCartesien::operator()(const Nuage &n) const {
 //     return barycentre(n);
 // }

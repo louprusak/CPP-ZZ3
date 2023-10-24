@@ -1,6 +1,9 @@
 #ifndef VECTEUR_HPP_LOUP
 #define VECTEUR_HPP_LOUP
 
+#include <algorithm>
+#include <iterator>
+
 class Vecteur{
     private:
         int *tab;
@@ -14,7 +17,10 @@ class Vecteur{
         int* getTab()const;
         int getTaille() const;
         int getNb() const;
+        Vecteur& operator=(const Vecteur &v);
+        
     
 };
+
 
 #endif

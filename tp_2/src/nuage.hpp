@@ -24,6 +24,9 @@ class Nuage{
 template<typename T>
 T barycentre_v1(const Nuage<T> &n);
 
+template<typename T>
+T barycentre_v2(const Nuage<T> &n);
+
 // template<typename T>
 // class BarycentreCartesien{
 //     public:

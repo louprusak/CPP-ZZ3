@@ -10,13 +10,14 @@ class Nuage{
     private:
         std::vector<T> points;
     public:
-        using value_type = T;
+        //using value_type = T;
         typedef typename std::vector<T>::const_iterator const_iterator;
+        //using const_iterator = typename std::vector<T>::const_iterator;
         void ajouter(const T& p);
         unsigned int size();
         std::vector<T> getPoints() const;
-        typename std::vector<T>::const_iterator begin();
-        typename std::vector<T>::const_iterator end();
+        Nuage::const_iterator begin() const;
+        Nuage::const_iterator end()const;
 
 };
 
@@ -26,7 +27,10 @@ template<typename T>
 T barycentre_v1(const Nuage<T> &n);
 
 template<typename T>
-typename T::value_type barycentre_v2(const T &n);
+Cartesien barycentre_v2(const T &t);
+
+// template<typename T>
+// typename T::value_type barycentre_v2(const T &n);
 
 // template<typename T>
 // class BarycentreCartesien{

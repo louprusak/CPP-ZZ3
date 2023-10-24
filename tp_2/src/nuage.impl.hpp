@@ -17,12 +17,12 @@ std::vector<T> Nuage<T>::getPoints() const{
 }
 
 template<typename T>
-typename std::vector<T>::const_iterator Nuage<T>::begin() {
+typename Nuage<T>::const_iterator Nuage<T>::begin() const{
     return points.begin();
 }
 
 template<typename T>
-typename std::vector<T>::const_iterator Nuage<T>::end() {
+typename Nuage<T>::const_iterator Nuage<T>::end() const{
     return points.end();
 }
 
@@ -75,38 +75,59 @@ Polaire barycentre_v1(const Nuage<Polaire> & n){
 }
 
 template<typename T>
-typename T::value_type barycentre_v2(const T &n){
-
-    using value_type = typename T::value_type;
-
-    typename T::const_iterator it = n.begin();
-    typename T::const_iterator end = n.begin();
-
-    if (it == end)
-    {
-        return Cartesien(0,0);
-    }
-
+Cartesien barycentre_v2(const T &t){
     double valX = 0.0;
     double valY = 0.0;
     int count = 0;
 
-    while (it != end)
+    for (typename T::const_iterator it = t.begin(); it != t.end(); ++it)
     {
-        Cartesien c;
-
-        it->convertir(c);
+        Cartesien c(*it);
 
         valX += c.getX();
         valY += c.getY();
 
-        ++it;
         ++count;
     }
-    
-    return Cartesien(valX/count, valY/count);
 
+    if(count == 0) return Cartesien(0,0);
+
+    return Cartesien(valX/count, valY/count);
 }
+
+// template<typename T>
+// typename T::value_type barycentre_v2(const T &n){
+
+//     using value_type = typename T::value_type;
+
+//     typename T::const_iterator it = n.begin();
+//     typename T::const_iterator end = n.begin();
+
+//     if (it == end)
+//     {
+//         return Cartesien(0,0);
+//     }
+
+//     double valX = 0.0;
+//     double valY = 0.0;
+//     int count = 0;
+
+//     while (it != end)
+//     {
+//         Cartesien c;
+
+//         it->convertir(c);
+
+//         valX += c.getX();
+//         valY += c.getY();
+
+//         ++it;
+//         ++count;
+//     }
+    
+//     return Cartesien(valX/count, valY/count);
+
+// }
 
 // Cartesien BarycentreCartesien::operator()(const Nuage &n) const {
 //     return barycentre(n);

@@ -74,6 +74,40 @@ Polaire barycentre_v1(const Nuage<Polaire> & n){
     return Polaire(valAngle/points.size(), valDistance/points.size()); 
 }
 
+template<typename T>
+typename T::value_type barycentre_v2(const T &n){
+
+    using value_type = typename T::value_type;
+
+    typename T::const_iterator it = n.begin();
+    typename T::const_iterator end = n.begin();
+
+    if (it == end)
+    {
+        return Cartesien(0,0);
+    }
+
+    double valX = 0.0;
+    double valY = 0.0;
+    int count = 0;
+
+    while (it != end)
+    {
+        Cartesien c;
+
+        it->convertir(c);
+
+        valX += c.getX();
+        valY += c.getY();
+
+        ++it;
+        ++count;
+    }
+    
+    return Cartesien(valX/count, valY/count);
+
+}
+
 // Cartesien BarycentreCartesien::operator()(const Nuage &n) const {
 //     return barycentre(n);
 // }

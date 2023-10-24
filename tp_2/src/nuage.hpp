@@ -10,6 +10,7 @@ class Nuage{
     private:
         std::vector<T> points;
     public:
+        using value_type = T;
         typedef typename std::vector<T>::const_iterator const_iterator;
         void ajouter(const T& p);
         unsigned int size();
@@ -25,7 +26,7 @@ template<typename T>
 T barycentre_v1(const Nuage<T> &n);
 
 template<typename T>
-T barycentre_v2(const Nuage<T> &n);
+typename T::value_type barycentre_v2(const T &n);
 
 // template<typename T>
 // class BarycentreCartesien{
